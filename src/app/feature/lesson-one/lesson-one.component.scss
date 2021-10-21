@@ -1,0 +1,10 @@
+@import '~src/colors.scss';
+
+h2 {
+  color: $primary-text-color;
+}
+
+p {
+  color: $secondary-text-color;
+  font-size: 1.5em;
+}

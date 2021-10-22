@@ -10,6 +10,7 @@ export class LessonOneComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('THIS', this)
   }
 
 }

@@ -1,25 +1,25 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {LessonOneComponent} from "./lesson-one.component";
 import {SharedModule} from "../../shared/shared.module";
+import {LessonTwoComponent} from "./lesson-two.component";
 
-const lessonOneRoutes: Routes = [
-  {path: '', component: LessonOneComponent},
+const lessonTwoRoutes: Routes = [
+  {path: '', component: LessonTwoComponent},
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(lessonOneRoutes)
+    RouterModule.forChild(lessonTwoRoutes)
   ],
   exports: [
     RouterModule
   ],
   declarations: [
-    LessonOneComponent
+    LessonTwoComponent
   ]
 })
-export class LessonOneModule {
+export class LessonTwoModule {
 }

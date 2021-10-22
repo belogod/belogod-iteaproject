@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +12,12 @@ import {Router} from "@angular/router";
 })
 export class ToolbarComponent implements OnInit {
 
+  @Input() title: string;
+
   constructor(
     public router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
   }

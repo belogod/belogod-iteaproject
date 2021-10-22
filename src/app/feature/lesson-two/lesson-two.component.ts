@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LessonTwoComponent implements OnInit {
   public answerComputer = '';
+  public title = 'Two Lesson';
 
   constructor() {
   }

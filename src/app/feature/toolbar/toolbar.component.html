@@ -1,2 +1,19 @@
-<button (click)="routerToMove('lesson-one')">Lesson One</button>
-<button (click)="routerToMove('lesson-two')">Lesson Two</button>
+<mat-toolbar class="mat_toolbar">
+  <mat-card-title class="title_toolbar">
+  {{title}}
+  </mat-card-title>
+  <span class="spacer">
+  </span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>home</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="mat_menu_content">
+    <button mat-menu-item (click)="routerToMove('lesson-one')">
+      <span>Lesson One</span>
+    </button>
+    <button mat-menu-item (click)="routerToMove('lesson-two')">
+      <span>Lesson Two</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

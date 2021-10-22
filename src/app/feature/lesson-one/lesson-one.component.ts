@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lesson-one.component.scss']
 })
 export class LessonOneComponent implements OnInit {
-
-  constructor() { }
+  public title = 'One Lesson';
+  constructor() {
+  }
 
   ngOnInit(): void {
     console.log('THIS', this)

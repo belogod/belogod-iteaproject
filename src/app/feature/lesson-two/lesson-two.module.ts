@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from "../../shared/shared.module";
 import {LessonTwoComponent} from "./lesson-two.component";
+import {ToolbarModule} from "../toolbar/toolbar.module";
 
 const lessonTwoRoutes: Routes = [
   {path: '', component: LessonTwoComponent},
@@ -12,6 +13,7 @@ const lessonTwoRoutes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
+    ToolbarModule,
     RouterModule.forChild(lessonTwoRoutes)
   ],
   exports: [

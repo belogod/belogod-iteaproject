@@ -1,0 +1,22 @@
+.lesson_two {
+  height: calc(100% - 50px);
+  overflow: hidden;
+  .play_game {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  img {
+    width: 400px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+
+  .start_game {
+    margin-top: 50px;
+  }
+}

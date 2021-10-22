@@ -1,14 +1,23 @@
 .mat_toolbar {
+  width: 100%;
   background: #546747;
   height: 50px;
 
   .title_toolbar {
-    margin-left: 40%;
+    margin-left: 47%;
     color: #bbc8ba;
   }
 
   .spacer {
     flex: 1;
+  }
+
+  .mat_menu {
+    width: 90px;
+  }
+
+  .mat_menu:hover {
+    opacity: 0.8;
   }
 
 }

@@ -7,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LessonTwoComponent implements OnInit {
   public answerComputer = '';
+  public yourAnswer = '';
   public yourResult = '';
   public title = 'Two Lesson';
   public stage = '1';
@@ -19,6 +20,7 @@ export class LessonTwoComponent implements OnInit {
 
   playGame(answer: string) {
     const computerChoice = Math.random();
+    this.yourAnswer = answer;
 
     if (computerChoice < 0.34) {
       this.answerComputer = 'камень';
@@ -60,5 +62,17 @@ export class LessonTwoComponent implements OnInit {
 
   changeRound(st: string) {
     this.stage = st;
+  }
+
+  translateImg(img: string): any {
+    if (img === 'камень') {
+      return 'assets/img/1.png';
+    }
+    if (img === 'ножницы') {
+      return 'assets/img/2.png';
+    }
+    if (img === 'бумага') {
+      return 'assets/img/3.png';
+    }
   }
 }

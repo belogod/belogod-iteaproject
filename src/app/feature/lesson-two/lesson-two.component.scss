@@ -1,9 +1,13 @@
 .lesson_two {
   height: calc(100% - 50px);
   overflow: hidden;
+
   .play_game {
     text-align: center;
     margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   img {
@@ -17,6 +21,31 @@
   }
 
   .start_game {
+    margin-top: 50px;
+  }
+
+  .div_your_answer {
+    display: grid;
+    margin-right: 20px;
+  }
+
+  .your_answer {
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .div_comp_answer {
+    display: grid;
+    margin-left: 20px;
+  }
+
+  .comp_answer {
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .play_new_game {
+    text-align: center;
     margin-top: 50px;
   }
 }

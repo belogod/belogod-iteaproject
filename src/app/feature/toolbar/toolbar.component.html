@@ -12,7 +12,9 @@
   </button>
 
   <mat-menu #menu="matMenu" class="mat_menu_content">
-    <button mat-menu-item (click)="routerToMove('lesson-one')">
+    <button mat-menu-item (click)="routerToMove('dashboard')">
+      <span>Dashboard</span>
+    </button><button mat-menu-item (click)="routerToMove('lesson-one')">
       <span>Lesson One</span>
     </button>
     <button mat-menu-item [matMenuTriggerFor]="lessonTwo" (click)="routerToMove('lesson-two')">

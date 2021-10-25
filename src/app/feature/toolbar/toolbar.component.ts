@@ -1,30 +1,20 @@
-import {Component, Injectable, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
-
-@Injectable({
-  providedIn: 'root'
-})
+import {InheritanceComponent} from "../../core/inheritance.component";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent extends InheritanceComponent {
 
   @Input() title: string;
 
   constructor(
     public router: Router
   ) {
+    super(router);
   }
 
-  ngOnInit(): void {
-  }
-
-  routerToMove(param: any) {
-    console.log(this)
-    this.router.navigate([param]);
-
-  }
 }

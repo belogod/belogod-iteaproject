@@ -1,0 +1,12 @@
+.body {
+  margin: 10px;
+}
+
+h1 {
+  color: #546747;
+}
+
+h1:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}

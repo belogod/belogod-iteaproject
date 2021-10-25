@@ -1,63 +1,76 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-lesson-two',
   templateUrl: './lesson-two.component.html',
   styleUrls: ['./lesson-two.component.scss']
 })
-export class LessonTwoComponent implements OnInit {
+export class LessonTwoComponent {
   public answerComputer = '';
   public yourAnswer = '';
   public yourResult = '';
-  public title = 'Two Lesson';
+  public title = 'Rock Paper Scissors';
   public stage = '1';
+  public imgResult = '';
+
+  public rock = 'камень';
+  public paper = 'бумага';
+  public scissors = 'ножницы';
+
+  public youLose = 'Вы проиграли'
+  public youWon = 'Вы победили';
+  public draw = 'Ничья';
 
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
-  playGame(answer: string) {
+  playGame(answer: string): any {
     const computerChoice = Math.random();
     this.yourAnswer = answer;
 
     if (computerChoice < 0.34) {
-      this.answerComputer = 'камень';
-      if (answer === 'камень') {
-        this.yourResult = 'Ничья'
+      this.answerComputer = this.rock;
+      if (answer === this.rock) {
+        this.yourResult = this.draw;
+        return this.imgResult = 'assets/img/game-draw.jpg';
       }
-      if (answer === 'ножницы') {
-        this.yourResult = 'Вы проиграли'
+      if (answer === this.scissors) {
+        this.yourResult = this.youLose;
+        return this.imgResult = 'assets/img/game-over.jpg';
       }
-      if (answer === 'бумага') {
-        this.yourResult = 'Вы победили'
+      if (answer === this.paper) {
+        this.yourResult = this.youWon
+        return this.imgResult = 'assets/img/game-win.jpg';
       }
     } else if (computerChoice <= 0.67) {
-      this.answerComputer = 'бумага';
-      if (answer === 'камень') {
-        this.yourResult = 'Вы проиграли'
+      this.answerComputer = this.paper;
+      if (answer === this.rock) {
+        this.yourResult = this.youLose;
+        return this.imgResult = 'assets/img/game-over.jpg';
       }
-      if (answer === 'ножницы') {
-        this.yourResult = 'Вы победили'
+      if (answer === this.scissors) {
+        this.yourResult = this.youWon
+        return this.imgResult = 'assets/img/game-win.jpg';
       }
-      if (answer === 'бумага') {
-        this.yourResult = 'Ничья'
+      if (answer === this.paper) {
+        this.yourResult = this.draw;
+        return this.imgResult = 'assets/img/game-draw.jpg';
       }
     } else {
-      this.answerComputer = 'ножницы';
-      if (answer === 'камень') {
-        this.yourResult = 'Вы победили'
+      this.answerComputer = this.scissors;
+      if (answer === this.rock) {
+        this.yourResult = this.youWon
+        return this.imgResult = 'assets/img/game-win.jpg';
       }
-      if (answer === 'ножницы') {
-        this.yourResult = 'Ничья'
+      if (answer === this.scissors) {
+        this.yourResult = this.draw;
+        return this.imgResult = 'assets/img/game-draw.jpg';
       }
-      if (answer === 'бумага') {
-        this.yourResult = 'Вы проиграли'
+      if (answer === this.paper) {
+        this.yourResult = this.youLose;
+        return this.imgResult = 'assets/img/game-over.jpg';
       }
     }
-
-    console.log('this.answerComputer', this.answerComputer)
   }
 
   changeRound(st: string) {
@@ -65,14 +78,16 @@ export class LessonTwoComponent implements OnInit {
   }
 
   translateImg(img: string): any {
-    if (img === 'камень') {
+    console.log('this.imgResult', this.imgResult)
+    if (img === this.rock) {
       return 'assets/img/1.png';
     }
-    if (img === 'ножницы') {
+    if (img === this.scissors) {
       return 'assets/img/2.png';
     }
-    if (img === 'бумага') {
+    if (img === this.paper) {
       return 'assets/img/3.png';
     }
   }
+
 }

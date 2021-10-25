@@ -4,15 +4,16 @@
 
   <ng-container *ngIf="stage === '1'">
     <div class="play_game">
-      <img alt="" src="assets/img/play.png" (click)="changeRound('2')" class="start_game">
+      <img alt="start" src="assets/img/newPlay.png" (click)="changeRound('2')" class="start_game">
     </div>
   </ng-container>
 
   <ng-container *ngIf="stage === '2'">
+    <h1 class="make_choice">Make your choice</h1>
     <div class="play_game">
-      <img alt="" src="assets/img/1.png" (click)="playGame('камень'); changeRound('3')">
-      <img alt="" src="assets/img/2.png" (click)="playGame('ножницы'); changeRound('3')">
-      <img alt="" src="assets/img/3.png" (click)="playGame('бумага'); changeRound('3')">
+      <img alt="rock" src="assets/img/1.png" (click)="playGame('камень'); changeRound('3')">
+      <img alt="scissors" src="assets/img/2.png" (click)="playGame('ножницы'); changeRound('3')">
+      <img alt="paper" src="assets/img/3.png" (click)="playGame('бумага'); changeRound('3')">
     </div>
   </ng-container>
 
@@ -20,28 +21,18 @@
     <div class="play_game">
 
       <div class="div_your_answer">
-        Ваш ответ: <img class="your_answer" alt="" src="{{translateImg(yourAnswer)}}">
+        Ваш ответ: <img class="your_answer" alt="yourAnswer" src="{{translateImg(yourAnswer)}}">
       </div>
 
-      <ng-container *ngIf="yourResult === 'Вы победили'">
-        <img alt="" src="assets/img/game-win.jpg">
-      </ng-container>
-
-      <ng-container *ngIf="yourResult === 'Ничья'">
-        <img alt="" src="assets/img/game-draw.jpg">
-      </ng-container>
-
-      <ng-container *ngIf="yourResult === 'Вы проиграли'">
-        <img alt="" src="assets/img/game-over.jpg">
-      </ng-container>
+      <img alt="img" src="{{imgResult}}">
 
       <div class="div_comp_answer">
-        Ответ компьютера: <img class="comp_answer" alt="" src="{{translateImg(answerComputer)}}">
+        Ответ компьютера: <img class="comp_answer" alt="answerComputer" src="{{translateImg(answerComputer)}}">
       </div>
     </div>
 
     <div class="play_new_game">
-      <img alt="" src="assets/img/play.png" (click)="changeRound('2')" class="start_game">
+      <img alt="start" src="assets/img/newPlay.png" (click)="changeRound('2')" class="start_game">
     </div>
   </ng-container>
 </div>

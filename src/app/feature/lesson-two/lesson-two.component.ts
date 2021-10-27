@@ -17,7 +17,7 @@ export class LessonTwoComponent {
   public paper = 'бумага';
   public scissors = 'ножницы';
 
-  public youLose = 'Вы проиграли'
+  public youLose = 'Вы проиграли';
   public youWon = 'Вы победили';
   public draw = 'Ничья';
 
@@ -78,7 +78,6 @@ export class LessonTwoComponent {
   }
 
   translateImg(img: string): any {
-    console.log('this.imgResult', this.imgResult)
     if (img === this.rock) {
       return 'assets/img/1.png';
     }

@@ -17,8 +17,11 @@
     </button><button mat-menu-item (click)="routerToMove('lesson-one')">
       <span>Lesson One</span>
     </button>
-    <button mat-menu-item [matMenuTriggerFor]="lessonTwo" (click)="routerToMove('lesson-two')">
+    <button mat-menu-item [matMenuTriggerFor]="lessonTwo">
       <span>Lesson Two</span>
+    </button>
+    <button mat-menu-item [matMenuTriggerFor]="lessonThree">
+      <span>Lesson Three</span>
     </button>
   </mat-menu>
 
@@ -29,5 +32,14 @@
       <button mat-menu-item (click)="routerToMove('lesson-two-answer')">
         <span>Answers on questions</span>
       </button>
+  </mat-menu>
+
+  <mat-menu #lessonThree="matMenu">
+    <button mat-menu-item (click)="routerToMove('lesson-three')">
+      <span>Play Game</span>
+    </button>
+    <button mat-menu-item (click)="routerToMove('lesson-three-answer')">
+      <span>Answers on questions</span>
+    </button>
   </mat-menu>
 </mat-toolbar>

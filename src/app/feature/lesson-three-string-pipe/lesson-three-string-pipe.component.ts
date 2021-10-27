@@ -9,6 +9,7 @@ export class LessonThreeStringPipeComponent {
 
   public title = 'Lesson Three - String Pipe';
 
-  public qwerty: '';
+  public custDir: '';
+  public revStrPipe: '';
 
 }

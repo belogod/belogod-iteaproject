@@ -5,6 +5,7 @@ import {SharedModule} from "../../shared/shared.module";
 import {ToolbarModule} from "../toolbar/toolbar.module";
 import {LessonThreeStringPipeComponent} from "./lesson-three-string-pipe.component";
 import { PositiveNumbersDirective } from './positive-numbers.directive';
+import { ThreeStringPipe } from './three-string.pipe';
 
 const lessonThreeStringPipeRoutes: Routes = [
   {path: '', component: LessonThreeStringPipeComponent},
@@ -22,7 +23,8 @@ const lessonThreeStringPipeRoutes: Routes = [
   ],
   declarations: [
     LessonThreeStringPipeComponent,
-    PositiveNumbersDirective
+    PositiveNumbersDirective,
+    ThreeStringPipe
   ]
 })
 export class LessonThreeStringPipeModule {

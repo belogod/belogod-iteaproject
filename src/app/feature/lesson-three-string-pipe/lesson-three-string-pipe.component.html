@@ -2,9 +2,18 @@
 
 <div class="body">
 
-<h1>Create a custom directive, which will allow only positive numbers to input. Others will be removed.</h1>
-<mat-form-field class="example-full-width" appearance="fill">
-  <mat-label>Введите любой знак</mat-label>
-  <input matInput appPositiveNumbers [(ngModel)]="qwerty">
-</mat-form-field>
+  <h1>Create a reverse string pipe. Ex. your value is ‘kitty’ - you will see ‘yttik’</h1>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Введите любой знак</mat-label>
+    <input matInput [(ngModel)]="revStrPipe">
+  </mat-form-field>
+
+  <strong *ngIf="revStrPipe != ''"> - {{revStrPipe | threeString}}</strong>
+
+
+  <h1>Create a custom directive, which will allow only positive numbers to input. Others will be removed.</h1>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Введите любой знак</mat-label>
+    <input matInput appPositiveNumbers [(ngModel)]="custDir">
+  </mat-form-field>
 </div>

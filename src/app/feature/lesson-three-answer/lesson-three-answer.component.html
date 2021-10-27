@@ -1,38 +1,32 @@
 <app-toolbar [title]="title"></app-toolbar>
 
 <div class="body">
-  <h2>1. Explain everything you can see in the package.json and what it is the purpose of the file.</h2>
-  <h2>2. What is npm and how do we use that?</h2>
-  <h2>3. What is the purpose of the assets folder, main.ts, angular.json, index.html</h2>
-  <h2>4. Give an example of smart and dumb components</h2>
-
-  <p><strong>1. package.json -</strong> файл, в котором содержится информация о даном приложении:<br>
-    - название;<br>
-    - версия;<br>
-    - зависимости;<br>
-    - скрипты.
-  </p>
-
-  <p><strong>2. npm -</strong> менеджер пакетов, который входит в состав Node.js.</p>
+  <h2>1. What is the difference between structural and attributive directives?</h2>
+  <h2>2. What is trackByFn?</h2>
+  <h2>3. What is the difference between ngIf and display: none?</h2>
+  <h2>4. Explain decimal pipe</h2>
 
   <p>
-    <strong>3. index.html -</strong> главная страница приложения.<br>
-    <strong>main.ts -</strong> скрипт, который выполняется после загрузки страницы.<br>
-    <strong>angular.json -</strong> главный конфигурационный файл.
+    <strong>1. Структурные</strong> директивы используются для формирования или изменения формы HTML DOM путем
+    добавления и удаления элементов.<br>
+    Директивы <strong>атрибутов</strong> используются для изменения внешнего вида или поведения элемента DOM.<br>
+  </p>
+
+  <p><strong>2.</strong> При использовании ngFor для зацикливания массива в шаблонах, если обратиться к функции trackBy,
+    она вернёт уникальный идентификатор для каждого элемента. Angular будет понимать, какой элемент изменился, а затем
+    внесёт изменения в DOM только для этого конкретного элемента.</p>
+
+  <p>
+    <strong>3. ngIf -</strong> позволяет удалить или, наоборот, добавить элемент при определенном условии. При условии
+    === false, элемен полностью удаляется из DOM.<br>
+    <strong>display: none -</strong> элемент удаляется из дерева доступности. Это свойство скрывает только визуальную
+    часть элемента, в то время как его можно изменить через консоль.<br>
   </p>
 
   <p>
-    <strong>4. Dumb components:</strong><br>
-    - независим от контекста и бизнес-логики;<br>
-    - содержит рыбный текст-заглушку, который можно заменить чем угодно;<br>
-    - иллюстрирует визуальное оформление;<br>
-    - иллюстрирует возможные состояния и поведение.<br>
-
-    <strong>Smart components:</strong><br>
-    - существует в контексте: в определенном экране/блоке/фиче;<br>
-    - содержит контекст, подходящий для места применения;<br>
-    - иллюстрирует как работает конкретная фича;<br>
-    - содержит только необходимые состояния и поведение.<br>
+    <strong>4. Angular Decimal Pipe -</strong> это один из элементов конвейера в Angular, который
+    используется для форматирования десятичных чисел в соответствии с заданной информацией о десятичных цифрах и
+    информацией о языковом стандарте.
   </p>
 
 </div>

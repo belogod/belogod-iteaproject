@@ -8,12 +8,28 @@
     <input matInput [(ngModel)]="revStrPipe">
   </mat-form-field>
 
-  <strong *ngIf="revStrPipe != ''"> - {{revStrPipe | threeString}}</strong>
+  <strong> - {{revStrPipe | threeString}}</strong>
+
+
+  <h1>Modify your reverse string pipe to reverse only a specified number of letters. So, if you specify number 3 - only
+    the first 3 letters of the word will be reversed and others will remain the same.</h1>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Введите любой знак</mat-label>
+    <input matInput [(ngModel)]="revStr">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Введите любое число</mat-label>
+    <input matInput [(ngModel)]="revInt">
+  </mat-form-field>
+
+  <strong> - {{revStr | reverseString:revInt}}</strong>
 
 
   <h1>Create a custom directive, which will allow only positive numbers to input. Others will be removed.</h1>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Введите любой знак</mat-label>
+    <mat-label>Введите положительное число</mat-label>
     <input matInput appPositiveNumbers [(ngModel)]="custDir">
   </mat-form-field>
 </div>

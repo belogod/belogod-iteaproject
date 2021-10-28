@@ -11,5 +11,7 @@ export class LessonThreeStringPipeComponent {
 
   public custDir: '';
   public revStrPipe: '';
+  public revStr: '';
+  public revInt = 3;
 
 }

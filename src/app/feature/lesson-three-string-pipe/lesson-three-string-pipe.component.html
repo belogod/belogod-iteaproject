@@ -3,33 +3,35 @@
 <div class="body">
 
   <h1>Create a reverse string pipe. Ex. your value is ‘kitty’ - you will see ‘yttik’</h1>
-  <mat-form-field class="example-full-width" appearance="fill">
+  <mat-form-field appearance="fill">
     <mat-label>Введите любой знак</mat-label>
     <input matInput [(ngModel)]="revStrPipe">
   </mat-form-field>
 
   <strong> - {{revStrPipe | threeString}}</strong>
 
-
   <h1>Modify your reverse string pipe to reverse only a specified number of letters. So, if you specify number 3 - only
     the first 3 letters of the word will be reversed and others will remain the same.</h1>
 
-  <mat-form-field class="example-full-width" appearance="fill">
+  <mat-form-field appearance="fill">
     <mat-label>Введите любой знак</mat-label>
     <input matInput [(ngModel)]="revStr">
   </mat-form-field>
 
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Введите любое число</mat-label>
-    <input matInput [(ngModel)]="revInt">
-  </mat-form-field>
-
   <strong> - {{revStr | reverseString:revInt}}</strong>
 
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Введите любое число</mat-label>
+    <input matInput appPositiveNumbers regex="{{allNumbers}}" [(ngModel)]="revInt">
+  </mat-form-field>
 
   <h1>Create a custom directive, which will allow only positive numbers to input. Others will be removed.</h1>
-  <mat-form-field class="example-full-width" appearance="fill">
+
+  <mat-form-field appearance="fill">
     <mat-label>Введите положительное число</mat-label>
-    <input matInput appPositiveNumbers [(ngModel)]="custDir">
+    <input matInput appPositiveNumbers regex="{{positiveNumbers}}" [(ngModel)]="custDir">
   </mat-form-field>
+
 </div>

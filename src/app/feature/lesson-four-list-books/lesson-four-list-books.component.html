@@ -1,6 +1,61 @@
 <app-toolbar [title]="title"></app-toolbar>
 
-<div *ngFor="let item of lessonFourListBooksService.data">
-  {{item.title}}
-  {{item.author}}
+<mat-drawer-container autosize class="sidenav">
+<div class="book-container">
+<div *ngFor="let item of lessonFourListBooksService.data" class="book-card">
+  <mat-card class="book-info-card">
+    <mat-card-header class="card">
+
+      <mat-card-title>
+
+        <div class="title">
+          <ng-container *ngIf="item.title !== null">
+            <strong>Название: </strong>{{item.title.substring(0, 32)}}
+            <ng-container *ngIf="item.title.length > 32">{{'...'}}</ng-container>
+          </ng-container>
+
+        </div>
+      </mat-card-title>
+
+      <div class="info-buttons">
+
+        <mat-icon (click)="_openDialogCrudCard(item, 'view')"
+                  (keydown.enter)="_openDialogCrudCard(item, 'view')"
+                  (keydown.space)="_openDialogCrudCard(item, 'view')"
+                  >event_note
+        </mat-icon>
+        <mat-icon (click)="_openDialogCrudCard(item, 'edit')"
+                  (keydown.enter)="_openDialogCrudCard(item, 'edit')"
+                  (keydown.space)="_openDialogCrudCard(item, 'edit')"
+                  >edit
+        </mat-icon>
+
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <div class="content-card">
+
+        <p><strong>Автор: </strong>
+          {{item.author}}
+        </p>
+
+
+        <p>{{item.description.substring(0, 370)}}
+          <ng-container *ngIf="item.description.length > 370">{{'...'}}</ng-container>
+        </p>
+
+      </div>
+
+      <div class="stars">
+        <mat-icon class="stars_star">star</mat-icon>
+        {{item.stars}}
+        {{item.year}}
+      </div>
+
+    </mat-card-content>
+  </mat-card>
 </div>
+</div>
+</mat-drawer-container>

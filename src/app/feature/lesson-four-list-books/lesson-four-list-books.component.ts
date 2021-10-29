@@ -5,7 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 @Component({
   selector: 'app-lesson-four-list-books',
   templateUrl: './lesson-four-list-books.component.html',
-  styleUrls: ['./lesson-four-list-books.component.css']
+  styleUrls: ['./lesson-four-list-books.component.scss']
 })
 export class LessonFourListBooksComponent implements OnInit {
 
@@ -30,4 +30,7 @@ export class LessonFourListBooksComponent implements OnInit {
     this.lessonFourListBooksService.getBooks();
   }
 
+  _openDialogCrudCard(item: void, view: string) {
+    console.log('item', item)
+  }
 }

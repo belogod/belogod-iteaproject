@@ -2,5 +2,17 @@
 
 html, body {
   margin: 0;
-  background-color: #bbc8ba;
+  padding: 0;
+  overflow: hidden;
+  height: 100% !important;
+  background: #bbc8ba;
+}
+
+body {
+  display: flex;
+  min-width: 900px;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
 }

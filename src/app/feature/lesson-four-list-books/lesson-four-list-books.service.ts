@@ -18,7 +18,7 @@ export class LessonFourListBooksService {
   }
 
   getBooks(): any {
-    return this.http.get(this.url.main + `?page=0&size=100`)
+    return this.http.get(this.url.main)
       .subscribe(
         (data: any) => {
           this.data = data.content;

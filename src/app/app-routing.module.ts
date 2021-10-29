@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {LessonFourListBooksModule} from "./feature/lesson-four-list-books/lesson-four-list-books.module";
 
 export const ROUTES: Routes = [
   {
@@ -21,6 +22,10 @@ export const ROUTES: Routes = [
   {
     path: 'lesson-three-pipe',
     loadChildren: () => import ('./feature/lesson-three-string-pipe/lesson-three-string-pipe.module').then(m => m.LessonThreeStringPipeModule)
+  },
+  {
+    path: 'lesson-four-list-books',
+    loadChildren: () => import ('./feature/lesson-four-list-books/lesson-four-list-books.module').then(m => m.LessonFourListBooksModule)
   },
   {path: 'dashboard', loadChildren: () => import ('./feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path: 'test', loadChildren: () => import ('./feature/test/test.module').then(m => m.TestModule)},

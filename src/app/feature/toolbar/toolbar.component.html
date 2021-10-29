@@ -23,6 +23,9 @@
     <button mat-menu-item [matMenuTriggerFor]="lessonThree">
       <span>Lesson Three</span>
     </button>
+    <button mat-menu-item [matMenuTriggerFor]="lessonFour">
+      <span>Lesson Four</span>
+    </button>
   </mat-menu>
 
   <mat-menu #lessonTwo="matMenu">
@@ -42,4 +45,14 @@
       <span>Answers on questions</span>
     </button>
   </mat-menu>
+
+  <mat-menu #lessonFour="matMenu">
+    <button mat-menu-item (click)="routerToMove('lesson-four-list-books')">
+      <span>Lesson Four List Books</span>
+    </button>
+    <button mat-menu-item (click)="routerToMove('lesson-four-answer')">
+      <span>Answers on questions</span>
+    </button>
+  </mat-menu>
+
 </mat-toolbar>

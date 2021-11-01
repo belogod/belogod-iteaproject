@@ -26,4 +26,8 @@ export class LessonFourListBooksService {
         });
   }
 
+  putData(editForm: any) {
+    return this.http.put(this.url.main, editForm);
+  }
+
 }

@@ -24,11 +24,6 @@
                   (keydown.space)="_openDialogCrudCard(item, 'view')"
                   >event_note
         </mat-icon>
-        <mat-icon (click)="_openDialogCrudCard(item, 'edit')"
-                  (keydown.enter)="_openDialogCrudCard(item, 'edit')"
-                  (keydown.space)="_openDialogCrudCard(item, 'edit')"
-                  >edit
-        </mat-icon>
 
       </div>
     </mat-card-header>
@@ -50,8 +45,8 @@
 
       <div class="stars">
         <mat-icon class="stars_star">star</mat-icon>
-        {{item.stars}}
-        {{item.year}}
+        <strong class="strong_stars">{{item.stars}}
+          {{item.year}}</strong>
       </div>
 
     </mat-card-content>

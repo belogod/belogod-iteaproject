@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LessonFourListBooksService} from "./lesson-four-list-books.service";
 import {MatDialog} from "@angular/material/dialog";
+import {CrudComponent} from "./crud/crud.component";
 
 @Component({
   selector: 'app-lesson-four-list-books',
@@ -10,6 +11,7 @@ import {MatDialog} from "@angular/material/dialog";
 export class LessonFourListBooksComponent implements OnInit {
 
   public title = 'Lesson Four List Books';
+  public dialogEditCard: any;
 
   displayedColumns: string[] = [
     'radio',
@@ -20,6 +22,7 @@ export class LessonFourListBooksComponent implements OnInit {
     public lessonFourListBooksService: LessonFourListBooksService,
     public dialog: MatDialog
   ) {
+    this.dialogEditCard = CrudComponent;
     this.getData();
   }
 
@@ -30,7 +33,16 @@ export class LessonFourListBooksComponent implements OnInit {
     this.lessonFourListBooksService.getBooks();
   }
 
-  _openDialogCrudCard(item: void, view: string) {
-    console.log('item', item)
+  _openDialogCrudCard(data: void, behavior: string) {
+    const component = this.dialogEditCard;
+      const dialogRef = this.dialog.open(component, {
+        data: {behavior, data},
+        disableClose: true
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === 'ok' && behavior === 'edit') {
+        }
+      });
+
   }
 }

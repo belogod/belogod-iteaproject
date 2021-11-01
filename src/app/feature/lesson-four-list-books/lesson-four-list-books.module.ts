@@ -4,9 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {SharedModule} from "../../shared/shared.module";
 import {ToolbarModule} from "../toolbar/toolbar.module";
 import {LessonFourListBooksComponent} from "./lesson-four-list-books.component";
+import { CrudComponent } from './crud/crud.component';
 
 const lessonFourListBooksRoutes: Routes = [
   {path: '', component: LessonFourListBooksComponent},
+  {path: '', component: CrudComponent},
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const lessonFourListBooksRoutes: Routes = [
     RouterModule
   ],
   declarations: [
-    LessonFourListBooksComponent
+    LessonFourListBooksComponent,
+    CrudComponent
   ]
 })
 export class LessonFourListBooksModule {

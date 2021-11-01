@@ -41,12 +41,12 @@ body {
 
 .content-card {
   padding-top: 5px;
-  height: 77%;
+  height: 70%;
 }
 
 .stars {
   border-top: 1px solid;
-  height: 13%;
+  height: 16%;
   padding-left: 10px;
   padding-right: 10px;
   white-space: nowrap;
@@ -67,14 +67,12 @@ body {
       margin: 5px 10px 0 0;
     }
 
-  }
+    mat-icon:hover {
+      margin: 5px 10px 0 0;
+      cursor: pointer;
+    }
 
-  //.book-info-card {
-  //  margin-left: 1%;
-  //  margin-top: 10px;
-  //  width: 98%;
-  //  padding: 0;
-  //}
+  }
 
   mat-grid-tile.stars {
     border-left: 1px solid;
@@ -138,23 +136,9 @@ body {
     border-radius: 4px 4px 0 0;
   }
 
-  //mat-card-header.card.card-inv {
-  //  background: #bbc8ba;
-  //}
-
   mat-card-header.card mat-icon {
     color: #bbc8ba;
   }
-
-  //.informations {
-  //  overflow-y: auto;
-  //  overflow-x: hidden;
-  //}
-  //
-  //.investigation {
-  //  background: #efefef;
-  //  min-height: 30px;
-  //}
 
   .add {
     height: 18px;
@@ -164,6 +148,6 @@ body {
 
 }
 
-.stars_star {
-
+.strong_stars {
+  margin-bottom: 5px;
 }

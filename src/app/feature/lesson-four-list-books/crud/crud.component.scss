@@ -1,0 +1,52 @@
+.form-inv {
+  overflow-x: hidden;
+  display: block;
+  background: #bbc8ba;
+}
+
+mat-card-header.view-dialog {
+  display: block;
+  background: #bbc8ba;
+
+h3 {
+  color: #546747;
+}
+}
+
+.icon-relation {
+  height: 31px !important;
+  width: 36px !important;
+  cursor: default !important;
+  font-size: 28px !important;
+  float: left !important;
+  color: #546747;
+}
+
+.form {
+  min-height: 150px;
+  height: 100%;
+  width: 420px;
+  margin-left: 10px;
+  margin-bottom: 10px!important;
+  @media (max-width: 750px) {
+    width: 100% !important;
+  }
+}
+
+::ng-deep mat-dialog-container.mat-dialog-container{
+  padding: 0!important;
+}
+
+mat-card.mat-card {
+  background: #bbc8ba;
+  padding: 0;
+  box-shadow: unset;
+}
+
+.no-paddin {
+  width: calc(100% - 10px);
+}
+
+mat-form-field {
+  height: 100%;
+}

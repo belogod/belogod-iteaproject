@@ -46,14 +46,14 @@ body {
 
 .stars {
   border-top: 1px solid;
-  height: 16%;
+  height: 18%;
   padding-left: 10px;
   padding-right: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: calc(100% - 20px);
-
+  display: flex;
 }
 
 .book-card {
@@ -95,20 +95,6 @@ body {
     padding: 0;
   }
 
-  .e-num {
-    display: inline-flex;
-
-    mat-icon {
-      margin: 0;
-      padding-left: 5px;
-      font-size: 20px;
-      height: 14px;
-      width: 14px;
-      cursor: default;
-    }
-
-  }
-
   .content-card > ::ng-deep figure {
     justify-content: flex-start;
     align-items: flex-start;
@@ -140,14 +126,15 @@ body {
     color: #bbc8ba;
   }
 
-  .add {
-    height: 18px;
-    position: relative;
-    float: right;
-  }
-
 }
 
 .strong_stars {
-  margin-bottom: 5px;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+.strong_year {
+  margin-top: 6px;
+  text-align: right;
+  width: 100%;
 }

@@ -8,9 +8,9 @@ mat-card-header.view-dialog {
   display: block;
   background: #bbc8ba;
 
-h3 {
-  color: #546747;
-}
+  h3 {
+    color: #546747;
+  }
 }
 
 .icon-relation {
@@ -27,14 +27,14 @@ h3 {
   height: 100%;
   width: 420px;
   margin-left: 10px;
-  margin-bottom: 10px!important;
+  margin-bottom: 10px !important;
   @media (max-width: 750px) {
     width: 100% !important;
   }
 }
 
-::ng-deep mat-dialog-container.mat-dialog-container{
-  padding: 0!important;
+::ng-deep mat-dialog-container.mat-dialog-container {
+  padding: 0 !important;
 }
 
 mat-card.mat-card {

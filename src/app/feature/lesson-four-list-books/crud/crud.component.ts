@@ -51,7 +51,7 @@ export class CrudComponent implements OnInit {
 
   yes() {
     this.toSend = this.editForm.value;
-    // this.putData(this.toSend);
+    this.putData(this.toSend);
   }
 
   putData(toSend: any) {

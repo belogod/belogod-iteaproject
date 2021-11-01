@@ -22,7 +22,6 @@ export class LessonFourListBooksService {
       .subscribe(
         (data: any) => {
           this.data = data.content;
-          console.log('this.data:', this.data)
         });
   }
 

@@ -26,6 +26,20 @@
             >event_note
             </mat-icon>
 
+            <mat-icon (click)="openDialogEdit(item)"
+                      (keydown.enter)="openDialogEdit(item)"
+                      (keydown.space)="openDialogEdit(item)"
+                      tabindex=100
+                      title="Редактировать">edit
+            </mat-icon>
+
+            <mat-icon (click)="openDialogDelete(item)"
+                      (keydown.enter)="openDialogDelete(item)"
+                      (keydown.space)="openDialogDelete(item)"
+                      tabindex=100
+                      title="Удалить">delete
+            </mat-icon>
+
           </div>
         </mat-card-header>
 
@@ -46,6 +60,7 @@
           <div class="stars">
             <mat-icon class="stars_star">star</mat-icon>
             <strong class="strong_stars">{{item.stars}}</strong>
+            <strong class="strong_stars" *ngIf="!editStar">{{plusStar}}</strong>
             <strong class="strong_year">Год: {{item.year}}</strong>
           </div>
 

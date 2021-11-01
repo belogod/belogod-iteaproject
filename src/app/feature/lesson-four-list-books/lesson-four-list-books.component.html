@@ -3,7 +3,7 @@
 <mat-drawer-container autosize class="sidenav">
   <div class="book-container">
     <div *ngFor="let item of lessonFourListBooksService.data" class="book-card">
-      <mat-card class="book-info-card">
+      <mat-card class="book-info-card" *ngIf="item.id">
         <mat-card-header class="card">
 
           <mat-card-title>

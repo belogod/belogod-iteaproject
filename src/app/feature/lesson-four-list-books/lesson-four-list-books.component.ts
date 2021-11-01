@@ -58,9 +58,10 @@ export class LessonFourListBooksComponent implements OnInit {
   }
 
   openDialogDelete(data: any) {
-    for (const i of this.lessonFourListBooksService.data) {
+    for (let i of this.lessonFourListBooksService.data) {
       if (i.id === data.id) {
-       delete i.stars;
+       delete i.id;
+        console.log(i)
       }
     }
   }

@@ -16,20 +16,15 @@ export class TemplateDrivenFormComponent {
   ) {
   }
 
-  onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model, null, 4));
-  }
-
   exit() {
-    this.dialogRef.close();
+    this.dialogRef.close({data: {close: 'exit'}});
   }
 
   yes() {
-    this.dialogRef.close(this.model);
+    this.dialogRef.close({data: {close: 'ok', data: this.model}});
   }
 
-  resetModal():void {
+  resetModal(): void {
     this.model = {};
-    console.log(this.model)
   }
 }

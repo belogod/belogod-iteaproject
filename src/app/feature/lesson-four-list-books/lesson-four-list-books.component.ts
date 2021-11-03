@@ -3,7 +3,6 @@ import {LessonFourListBooksService} from "./lesson-four-list-books.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CrudComponent} from "./crud/crud.component";
 import {TemplateDrivenFormComponent} from "./template-driven-form/template-driven-form.component";
-import {ComponentType} from "@angular/cdk/overlay";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -11,7 +10,8 @@ import {Subscription} from "rxjs";
   templateUrl: './lesson-four-list-books.component.html',
   styleUrls: ['./lesson-four-list-books.component.scss']
 })
-export class LessonFourListBooksComponent implements OnInit {
+
+export class LessonFourListBooksComponent {
 
   public title = 'Lesson Four List Books';
   public dialogEditCard: any;
@@ -20,11 +20,6 @@ export class LessonFourListBooksComponent implements OnInit {
   public tempDrivFormComp: any;
   public subscriptions: Subscription = new Subscription();
 
-  displayedColumns: string[] = [
-    'radio',
-    'systemRole'
-  ];
-
   constructor(
     public lessonFourListBooksService: LessonFourListBooksService,
     public dialog: MatDialog
@@ -32,9 +27,6 @@ export class LessonFourListBooksComponent implements OnInit {
     this.dialogEditCard = CrudComponent;
     this.tempDrivFormComp = TemplateDrivenFormComponent;
     this.getData();
-  }
-
-  ngOnInit(): void {
   }
 
   getData() {
@@ -64,12 +56,7 @@ export class LessonFourListBooksComponent implements OnInit {
   }
 
   openDialogDelete(data: any) {
-    for (let i of this.lessonFourListBooksService.data) {
-      if (i.id === data.id) {
-        delete i.id;
-        console.log(i)
-      }
-    }
+    this.lessonFourListBooksService.data = this.lessonFourListBooksService.data.filter((item: any) => item.id !== data.id);
   }
 
   openDialogAdd(): void {
@@ -78,10 +65,9 @@ export class LessonFourListBooksComponent implements OnInit {
     });
 
     const sub = dialogRef.afterClosed().subscribe(data => {
-        console.log('data', data)
-      this.lessonFourListBooksService.data.push(data);
-      // this.getData();
-      console.log('111', this.lessonFourListBooksService.data)
+      if (data.data.close === 'ok') {
+      this.lessonFourListBooksService.data.push(data.data.data);
+      }
     });
     this.subscriptions.add(sub);
 

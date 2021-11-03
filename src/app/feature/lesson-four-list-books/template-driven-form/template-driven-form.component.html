@@ -10,7 +10,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile colspan="3" rowspan="2" class="crud-button">
-          <button mat-stroked-button (click)="yes()">Добавить</button>
+          <button mat-stroked-button (click)="yes()" [disabled]="title.invalid || author.invalid || year.invalid || stars.invalid || description.invalid">Добавить</button>
         </mat-grid-tile>
 
         <mat-grid-tile colspan="3" rowspan="2" class="crud-button">
@@ -26,52 +26,47 @@
     </mat-card-header>
 
     <mat-card-content>
-      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="form">
+      <form name="form" #f="ngForm" class="form" novalidate>
 
-            <mat-form-field appearance="outline">
-              <mat-label>
-                ID
-              </mat-label>
+        <mat-grid-list cols="2" rowHeight="70">
 
-              <input name="id" [(ngModel)]="model.id" matInput>
-            </mat-form-field>
-
-          <mat-grid-list cols="2" rowHeight="70">
           <mat-grid-tile>
             <mat-form-field appearance="outline">
-              <mat-label>
-                Название
-              </mat-label>
-
-              <input name="title" [(ngModel)]="model.title" matInput>
+              <mat-label>Название</mat-label>
+              <input name="title" [(ngModel)]="model.title" matInput required #title="ngModel" [ngClass]="{'is-invalid': f.submitted && title.invalid }">
+              <div *ngIf="title?.invalid">
+                <div *ngIf="title?.errors?.required">First Name is required</div>
+              </div>
             </mat-form-field>
           </mat-grid-tile>
 
           <mat-grid-tile>
             <mat-form-field appearance="outline">
-              <mat-label>
-                Автор
-              </mat-label>
-              <input name="author" [(ngModel)]="model.author" matInput>
+              <mat-label>Автор</mat-label>
+              <input name="author" [(ngModel)]="model.author" matInput required #author="ngModel" >
+              <div *ngIf="author?.invalid">
+                <div *ngIf="author?.errors?.required">Author is required</div>
+              </div>
             </mat-form-field>
           </mat-grid-tile>
 
           <mat-grid-tile>
             <mat-form-field appearance="outline">
-              <mat-label>
-                Год
-              </mat-label>
-              <input name="year" [(ngModel)]="model.year" matInput>
+              <mat-label>Год</mat-label>
+              <input name="year" type="number" [(ngModel)]="model.year" matInput required #year="ngModel">
+              <div *ngIf="year?.invalid">
+                <div *ngIf="year?.errors?.required">Year is required</div>
+              </div>
             </mat-form-field>
           </mat-grid-tile>
 
           <mat-grid-tile>
             <mat-form-field appearance="outline">
-              <mat-label>
-                Рейтинг звезд
-              </mat-label>
-
-              <input name="stars" [(ngModel)]="model.stars" matInput>
+              <mat-label>Рейтинг звезд</mat-label>
+              <input name="stars" type="number" [(ngModel)]="model.stars" matInput required #stars="ngModel">
+              <div *ngIf="stars?.invalid">
+                <div *ngIf="stars?.errors?.required">Stars is required</div>
+              </div>
             </mat-form-field>
           </mat-grid-tile>
         </mat-grid-list>
@@ -79,14 +74,15 @@
         <mat-grid-list cols="2" rowHeight="100">
           <mat-grid-tile colspan="2">
             <mat-form-field appearance="outline" class="no-paddin">
-              <mat-label>
-                Описание
-              </mat-label>
-              <textarea rows="4" name="description" [(ngModel)]="model.description" matInput></textarea>
+              <mat-label>Описание</mat-label>
+              <textarea rows="4" name="description" [(ngModel)]="model.description" matInput required #description="ngModel"></textarea>
+              <div *ngIf="description?.invalid">
+                <div *ngIf="description?.errors?.required">Description is required</div>
+              </div>
             </mat-form-field>
           </mat-grid-tile>
-
         </mat-grid-list>
+
       </form>
     </mat-card-content>
 

@@ -1,57 +1,41 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {LessonFourListBooksService} from "../lesson-four-list-books.service";
+import {minLen} from "./validators";
 
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.scss']
 })
-export class CrudComponent implements OnInit {
+export class CrudComponent {
 
+  public errorTitle: string = 'This error is work'
   public toSend: any;
   public editForm: FormGroup;
-  public behavior: string;
   public componentData: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<CrudComponent>,
+    public fb: FormBuilder,
     public lessonFourListBooksService: LessonFourListBooksService,
   ) {
-    this.editForm = new FormGroup({
-      id: new FormControl(),
-      title: new FormControl(),
-      author: new FormControl(),
-      year: new FormControl(),
-      stars: new FormControl(),
-      description: new FormControl(),
-    });
-
-  }
-
-  ngOnInit(): void {
     this.componentData = this.data.data;
-    console.log('data', this.data);
-    this.editForm.setValue({
-      id: this.componentData.id,
-      title: this.componentData.title,
-      author: this.componentData.author,
-      year: this.componentData.year,
-      stars: this.componentData.stars,
-      description: this.componentData.description,
+    this.editForm = fb.group({
+      id: [this.componentData.id],
+      title: [this.componentData.title, [minLen, Validators.required]],
+      author: [this.componentData.author],
+      year: [this.componentData.year],
+      stars: [this.componentData.stars, [Validators.min(4), Validators.max(9)]],
+      description: [this.componentData.descriptin],
     });
   }
 
   exit() {
     this.dialogRef.close();
-  }
-
-  yes() {
-    this.toSend = this.editForm.value;
-    this.putData(this.toSend);
   }
 
   putData(toSend: any) {

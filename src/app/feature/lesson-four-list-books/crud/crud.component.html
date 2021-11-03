@@ -6,6 +6,7 @@
       <mat-grid-list cols="11" rowHeight="30">
 
         <mat-grid-tile colspan="7" rowspan="2" class="title">
+
           <mat-icon class="icon-relation">event_note</mat-icon>
           <h3>Просмотр</h3>
         </mat-grid-tile>
@@ -28,8 +29,9 @@
               <mat-label>
                 Название
               </mat-label>
-              <input [readonly]="behavior === 'view'" formControlName="title"
-                     matInput required>
+              <mat-error *ngIf="editForm.get('title')?.hasError('')">
+                {{errorTitle}}</mat-error>
+              <input formControlName="title" matInput>
             </mat-form-field>
           </mat-grid-tile>
 
@@ -38,8 +40,7 @@
               <mat-label>
                 Автор
               </mat-label>
-              <input [readonly]="behavior === 'view'" formControlName="author"
-                     matInput required>
+              <input formControlName="author" matInput>
             </mat-form-field>
           </mat-grid-tile>
 
@@ -48,8 +49,7 @@
               <mat-label>
                 Год
               </mat-label>
-              <input [readonly]="behavior === 'view'" formControlName="year"
-                     matInput required>
+              <input formControlName="year" matInput>
             </mat-form-field>
           </mat-grid-tile>
 
@@ -58,8 +58,9 @@
               <mat-label>
                 Рейтинг звезд
               </mat-label>
-              <input [readonly]="behavior === 'view'" formControlName="stars"
-                     matInput required>
+              <mat-error *ngIf="editForm.get('stars')?.hasError('min')">
+                {{errorTitle}}</mat-error>
+              <input formControlName="stars" matInput>
             </mat-form-field>
           </mat-grid-tile>
         </mat-grid-list>
@@ -70,7 +71,7 @@
               <mat-label>
                 Описание
               </mat-label>
-              <textarea rows="4" matInput [readonly]="behavior === 'view'" formControlName="description"></textarea>
+              <textarea rows="4" matInput formControlName="description"></textarea>
             </mat-form-field>
           </mat-grid-tile>
 

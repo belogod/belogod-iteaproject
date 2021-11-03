@@ -30,7 +30,7 @@ export class CrudComponent {
         minLen,
         Validators.required
       ]],
-      author: [this.componentData.author,[
+      author: [this.componentData.author, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(60)
@@ -45,7 +45,7 @@ export class CrudComponent {
         Validators.max(5),
         Validators.required
       ]],
-      description: [this.componentData.descriptin, [
+      description: [this.componentData.description, [
         Validators.required,
         Validators.minLength(10),
         Validators.maxLength(254)

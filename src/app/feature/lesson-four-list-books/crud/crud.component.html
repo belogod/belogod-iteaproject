@@ -29,8 +29,9 @@
               <mat-label>
                 Название
               </mat-label>
-              <mat-error *ngIf="editForm.get('title')?.hasError('')">
-                {{errorTitle}}</mat-error>
+              <mat-error *ngIf="editForm.get('title')?.hasError('minLen')">
+                Минимальная длина 10 символов
+              </mat-error>
               <input formControlName="title" matInput>
             </mat-form-field>
           </mat-grid-tile>
@@ -40,6 +41,12 @@
               <mat-label>
                 Автор
               </mat-label>
+              <mat-error *ngIf="editForm.get('author')?.hasError('minLength')">
+                Минимальная длина 6 символов
+              </mat-error>
+              <mat-error *ngIf="editForm.get('author')?.hasError('maxLength')">
+                Максимальная длина 60 символов
+              </mat-error>
               <input formControlName="author" matInput>
             </mat-form-field>
           </mat-grid-tile>
@@ -49,6 +56,12 @@
               <mat-label>
                 Год
               </mat-label>
+              <mat-error *ngIf="editForm.get('year')?.hasError('minLength')">
+                Минимальная длина 7 символов
+              </mat-error>
+              <mat-error *ngIf="editForm.get('year')?.hasError('maxLength')">
+                Максимальная длина 10 символов
+              </mat-error>
               <input formControlName="year" matInput>
             </mat-form-field>
           </mat-grid-tile>
@@ -59,7 +72,11 @@
                 Рейтинг звезд
               </mat-label>
               <mat-error *ngIf="editForm.get('stars')?.hasError('min')">
-                {{errorTitle}}</mat-error>
+                Минимальное значение 1
+              </mat-error>
+              <mat-error *ngIf="editForm.get('stars')?.hasError('max')">
+                Максимальное значение 5
+              </mat-error>
               <input formControlName="stars" matInput>
             </mat-form-field>
           </mat-grid-tile>
@@ -71,6 +88,12 @@
               <mat-label>
                 Описание
               </mat-label>
+              <mat-error *ngIf="editForm.get('description')?.hasError('minLength')">
+                Минимальная длина 10 символов
+              </mat-error>
+              <mat-error *ngIf="editForm.get('description')?.hasError('maxLength')">
+                Максимальная длина 254 символов
+              </mat-error>
               <textarea rows="4" matInput formControlName="description"></textarea>
             </mat-form-field>
           </mat-grid-tile>

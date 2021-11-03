@@ -26,11 +26,30 @@ export class CrudComponent {
     this.componentData = this.data.data;
     this.editForm = fb.group({
       id: [this.componentData.id],
-      title: [this.componentData.title, [minLen, Validators.required]],
-      author: [this.componentData.author],
-      year: [this.componentData.year],
-      stars: [this.componentData.stars, [Validators.min(4), Validators.max(9)]],
-      description: [this.componentData.descriptin],
+      title: [this.componentData.title, [
+        minLen,
+        Validators.required
+      ]],
+      author: [this.componentData.author,[
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(60)
+      ]],
+      year: [this.componentData.year, [
+        Validators.required,
+        Validators.minLength(7),
+        Validators.maxLength(10)
+      ]],
+      stars: [this.componentData.stars, [
+        Validators.min(1),
+        Validators.max(5),
+        Validators.required
+      ]],
+      description: [this.componentData.descriptin, [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(254)
+      ]],
     });
   }
 

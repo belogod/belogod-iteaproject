@@ -1,0 +1,94 @@
+<div class="form-inv">
+
+  <mat-card>
+
+    <mat-card-header class="view-dialog">
+      <mat-grid-list cols="12" rowHeight="30">
+
+        <mat-grid-tile colspan="3" rowspan="2" class="title">
+          <h3>Добавить</h3>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rowspan="2" class="crud-button">
+          <button mat-stroked-button (click)="yes()">Добавить</button>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rowspan="2" class="crud-button">
+          <button mat-stroked-button (click)="resetModal()">Очистить</button>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rowspan="2" class="crud-button">
+          <button mat-stroked-button (click)="exit()">Закрыть</button>
+        </mat-grid-tile>
+
+      </mat-grid-list>
+
+    </mat-card-header>
+
+    <mat-card-content>
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="form">
+
+            <mat-form-field appearance="outline">
+              <mat-label>
+                ID
+              </mat-label>
+
+              <input name="id" [(ngModel)]="model.id" matInput>
+            </mat-form-field>
+
+          <mat-grid-list cols="2" rowHeight="70">
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                Название
+              </mat-label>
+
+              <input name="title" [(ngModel)]="model.title" matInput>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                Автор
+              </mat-label>
+              <input name="author" [(ngModel)]="model.author" matInput>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                Год
+              </mat-label>
+              <input name="year" [(ngModel)]="model.year" matInput>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-form-field appearance="outline">
+              <mat-label>
+                Рейтинг звезд
+              </mat-label>
+
+              <input name="stars" [(ngModel)]="model.stars" matInput>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list cols="2" rowHeight="100">
+          <mat-grid-tile colspan="2">
+            <mat-form-field appearance="outline" class="no-paddin">
+              <mat-label>
+                Описание
+              </mat-label>
+              <textarea rows="4" name="description" [(ngModel)]="model.description" matInput></textarea>
+            </mat-form-field>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

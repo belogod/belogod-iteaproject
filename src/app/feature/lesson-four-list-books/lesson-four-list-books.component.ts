@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {LessonFourListBooksService} from "./lesson-four-list-books.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CrudComponent} from "./crud/crud.component";
+import {TemplateDrivenFormComponent} from "./template-driven-form/template-driven-form.component";
+import {ComponentType} from "@angular/cdk/overlay";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-lesson-four-list-books',
@@ -14,6 +17,8 @@ export class LessonFourListBooksComponent implements OnInit {
   public dialogEditCard: any;
   public editStar: boolean = false;
   public plusStar: number;
+  public tempDrivFormComp: any;
+  public subscriptions: Subscription = new Subscription();
 
   displayedColumns: string[] = [
     'radio',
@@ -25,6 +30,7 @@ export class LessonFourListBooksComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.dialogEditCard = CrudComponent;
+    this.tempDrivFormComp = TemplateDrivenFormComponent;
     this.getData();
   }
 
@@ -60,10 +66,25 @@ export class LessonFourListBooksComponent implements OnInit {
   openDialogDelete(data: any) {
     for (let i of this.lessonFourListBooksService.data) {
       if (i.id === data.id) {
-       delete i.id;
+        delete i.id;
         console.log(i)
       }
     }
+  }
+
+  openDialogAdd(): void {
+    const dialogRef = this.dialog.open(this.tempDrivFormComp, {
+      disableClose: true
+    });
+
+    const sub = dialogRef.afterClosed().subscribe(data => {
+        console.log('data', data)
+      this.lessonFourListBooksService.data.push(data);
+      // this.getData();
+      console.log('111', this.lessonFourListBooksService.data)
+    });
+    this.subscriptions.add(sub);
+
   }
 
 }

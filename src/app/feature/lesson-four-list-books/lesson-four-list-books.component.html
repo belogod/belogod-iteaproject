@@ -33,6 +33,13 @@
                       title="Редактировать">edit
             </mat-icon>
 
+            <mat-icon (click)="openDialogAdd()"
+                      (keydown.enter)="openDialogAdd()"
+                      (keydown.space)="openDialogAdd()"
+                      tabindex=100
+                      title="Добавить">add
+            </mat-icon>
+
             <mat-icon (click)="openDialogDelete(item)"
                       (keydown.enter)="openDialogDelete(item)"
                       (keydown.space)="openDialogDelete(item)"

@@ -1,0 +1,46 @@
+<app-toolbar [title]="title"></app-toolbar>
+
+<div class="body">
+  <h2>1. What kind of form is better for a big project?</h2>
+  <h2>2. Describe component lifecycle hooks: OnInit, OnChanges, AfterViewInit</h2>
+  <h2>3. Describe built-in validation in Angular</h2>
+  <h2>4. What is formControl?</h2>
+
+  <p>
+    <strong>1. Reactive forms.</strong><br>
+    - Более гибкий, но требует большой практики <br>
+    - Обрабатывает любые сложные сценарии <br>
+    - Больше кода компонента и меньше HTML markup <br>
+    - Динамическое добавление элементов <br>
+  </p>
+
+  <p>
+    <strong>2. OnInit - </strong>вызывается один раз после установки свойств компонента, которые участвуют в привязке.
+    Выполняет инициализацию компонента. <br>
+    <strong>ngOnChanges - </strong> вызывается до метода ngOnInit() при начальной установке свойств, которые связаны
+    механизмом привязки, а также при любой их переустановке или изменении их значений. Данный метод в качестве параметра
+    принимает объект класса SimpleChanges, который содержит предыдущие и текущие значения свойства. <br>
+    <strong>ngAfterViewInit - </strong> вызывается фреймворком Angular после инициализации представления компонента, а
+    также представлений дочерних компонентов. Вызывается только один раз сразу после первого вызова метода
+    ngAfterContentChecked(). <br>
+  </p>
+
+  <p>
+    <strong>3. Validation -</strong> это правила, которым должен следовать элемент управления вводом. Если
+    ввод не соответствует правилу, считается, что элемент управления недействителен. Можно применять валидаторы,
+    добавляя атрибуты в шаблон или определять их FormControls нашей модели.<br>
+    <strong>firstName: new FormControl('', Validators.required),<br>
+      lastName: new FormControl('', Validators.required),<br>
+    </strong>
+  </p>
+
+  <p>
+    <strong>4. </strong>При подходе <strong>Reactive Forms</strong> для формы создается набор объектов
+    <strong>FormGroup</strong> и <strong>FormControl</strong>. Сама
+    форма и ее подсекции представляют класс <strong>FormGroup</strong>, а отдельные элементы ввода - класс <strong>FormControl</strong>.
+    Объект <strong>FormControl</strong> может иметь различные формы определения. В
+    частности, в качестве первого параметра можно передавать значение по умолчанию для элемента, а в качестве второго
+    параметра - набор валидаторов
+  </p>
+
+</div>

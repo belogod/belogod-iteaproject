@@ -14,7 +14,8 @@
   <mat-menu #menu="matMenu" class="mat_menu_content">
     <button mat-menu-item (click)="routerToMove('dashboard')">
       <span>Dashboard</span>
-    </button><button mat-menu-item (click)="routerToMove('lesson-one')">
+    </button>
+    <button mat-menu-item (click)="routerToMove('lesson-one')">
       <span>Lesson One</span>
     </button>
     <button mat-menu-item [matMenuTriggerFor]="lessonTwo">
@@ -29,15 +30,18 @@
     <button mat-menu-item [matMenuTriggerFor]="lessonFive">
       <span>Lesson Five</span>
     </button>
+    <button mat-menu-item (click)="routerToMove('final-lesson-weather')">
+      <span>Weather</span>
+    </button>
   </mat-menu>
 
   <mat-menu #lessonTwo="matMenu">
     <button mat-menu-item (click)="routerToMove('lesson-two')">
       <span>Play Game</span>
     </button>
-      <button mat-menu-item (click)="routerToMove('lesson-two-answer')">
-        <span>Answers on questions</span>
-      </button>
+    <button mat-menu-item (click)="routerToMove('lesson-two-answer')">
+      <span>Answers on questions</span>
+    </button>
   </mat-menu>
 
   <mat-menu #lessonThree="matMenu">
@@ -59,9 +63,6 @@
   </mat-menu>
 
   <mat-menu #lessonFive="matMenu">
-<!--    <button mat-menu-item (click)="routerToMove('lesson-four-list-books')">-->
-<!--      <span>Lesson Four List Books</span>-->
-<!--    </button>-->
     <button mat-menu-item (click)="routerToMove('lesson-five-answer')">
       <span>Answers on questions</span>
     </button>

@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  flex: 1;
+}
+
+::ng-deep .mat-select {
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.image_not_found {
+  position: absolute;
+  left: 28%;
+  top: 37%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  width: 600px;
+}
+
+.text_not_found {
+  text-align: center;
+  position: absolute;
+  top: 48%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  color: #546747;
+
+  .text_404 {
+    font-size: 8em;
+    margin-block-end: 0.2em;
+    margin-block-start: 0;
+  }
+
+  .text_error {
+    font-size: 1.6em;
+  }
+
+  .go_dashboard {
+    text-decoration: underline;
+    color: #3f51b5;
+  }
+
+  .go_dashboard:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    color: #3f51b5;
+  }
+}

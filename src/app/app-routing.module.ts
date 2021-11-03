@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LessonFourListBooksModule} from "./feature/lesson-four-list-books/lesson-four-list-books.module";
-import {LessonFourAnswerModule} from "./feature/lesson-four-answer/lesson-four-answer.module";
-import {LessonFiveAnswerModule} from "./feature/lesson-five-answer/lesson-five-answer.module";
+import {NotFoundComponent} from "./feature/not-found/not-found.component";
 
 export const ROUTES: Routes = [
   {
@@ -37,9 +35,16 @@ export const ROUTES: Routes = [
     path: 'lesson-five-answer',
     loadChildren: () => import ('./feature/lesson-five-answer/lesson-five-answer.module').then(m => m.LessonFiveAnswerModule)
   },
+  {
+    path: 'final-lesson-weather',
+    loadChildren: () => import ('./feature/final-lesson-weather/final-lesson-weather.module').then(m => m.FinalLessonWeatherModule)
+  },
   {path: 'dashboard', loadChildren: () => import ('./feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
+  {path: '', loadChildren: () => import ('./feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path: 'test', loadChildren: () => import ('./feature/test/test.module').then(m => m.TestModule)},
-  {path: '**', redirectTo: 'dashboard'}
+
+  {path: '404', component: NotFoundComponent},
+  {path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

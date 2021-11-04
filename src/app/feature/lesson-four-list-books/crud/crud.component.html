@@ -77,7 +77,7 @@
               <mat-error *ngIf="editForm.get('stars')?.hasError('max')">
                 Максимальное значение 5
               </mat-error>
-              <input formControlName="stars" matInput>
+              <input type="number" formControlName="stars" matInput>
             </mat-form-field>
           </mat-grid-tile>
         </mat-grid-list>

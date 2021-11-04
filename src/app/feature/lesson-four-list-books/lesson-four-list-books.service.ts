@@ -9,8 +9,7 @@ export class LessonFourListBooksService {
   public url: any = {
     main: 'assets/json/books.json',
     weather: 'https://community-open-weather-map.p.rapidapi.com/weather?',
-    weatherMonth: 'https://community-open-weather-map.p.rapidapi.com/climate/month',
-    qwer: 'https://ip-geo-location.p.rapidapi.com/ip/23.123.12.11'
+    weatherWeek: 'https://community-open-weather-map.p.rapidapi.com/forecast?q=san%20francisco%2cus',
   }
 
   public data: any;
@@ -47,21 +46,16 @@ export class LessonFourListBooksService {
       .subscribe(
         (data: any) => {
           this.weatherData = data;
-          console.log('1111', data)
         });
   }
 
-  getWeatherMonth(): any {
-    return this.http.get(this.url.qwer + '?format: \'json\'', this.httpOptions)
+  getWeatherWeek(): any {
+    return this.http.get(this.url.weatherWeek, this.httpOptions)
       .subscribe(
         (data: any) => {
           this.weatherData = data;
           console.log('weatherData', data)
         });
-  }
-
-  putData(editForm: any) {
-    return this.http.put(this.url.main, editForm);
   }
 
 }

@@ -15,6 +15,7 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   public visible: boolean = false;
   public count: Array<string> = [];
   public units: string = 'metric';
+
   public roundTemp: number;
   public feels_like: number;
   public temp_max: number;
@@ -28,8 +29,7 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   constructor(
     public lessonFourListBooksService: LessonFourListBooksService
   ) {
-    // this.getWeather();
-    // this.getWeatherMonth();
+    // this.getWeatherWeek();
   }
 
   ngOnInit(): void {
@@ -37,22 +37,17 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.allWeather = this.lessonFourListBooksService.weatherData;
-    // this.roundTemp = Math.round(this.allWeather.main.temp);
-    // this.feels_like = Math.round(this.allWeather.main.feels_like);
-    // this.temp_max = Math.round(this.allWeather.main.temp_max);
-    // this.temp_min = Math.round(this.allWeather.main.temp_min);
-    this.roundTemp = Math.round(15.54);
-    this.feels_like = Math.round(15.34);
-    this.temp_max = Math.round(12.54);
-    this.temp_min = Math.round(10.54);
+
+    if (this.allWeather !== undefined) {
+      this.roundTemp = Math.round(this.allWeather.main.temp);
+      this.feels_like = Math.round(this.allWeather.main.feels_like);
+      this.temp_max = Math.round(this.allWeather.main.temp_max);
+      this.temp_min = Math.round(this.allWeather.main.temp_min);
+    }
   }
 
-  // getWeather(): void {
-  //   this.lessonFourListBooksService.getWeather();
-  // }
-
-  getWeatherMonth(): void {
-    this.lessonFourListBooksService.getWeatherMonth();
+  getWeatherWeek(): void {
+    this.lessonFourListBooksService.getWeatherWeek();
   }
 
   someMethod() {

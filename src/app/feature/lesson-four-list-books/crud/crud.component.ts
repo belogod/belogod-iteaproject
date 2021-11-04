@@ -57,11 +57,4 @@ export class CrudComponent {
     this.dialogRef.close();
   }
 
-  putData(toSend: any) {
-    const sub = this.lessonFourListBooksService.putData(toSend)
-      .subscribe(
-        () => {
-          this.dialogRef.close('ok');
-        })
-  }
 }

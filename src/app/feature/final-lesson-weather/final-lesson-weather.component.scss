@@ -78,8 +78,10 @@
 
 .div_weather {
   width: 100%;
+  display: flex;
 
   .mat_card_weather {
+    margin-right: 20px;
     background-image: url('/assets/img/weather/new_history.png');
     //opacity: 0.8;
     width: 600px;

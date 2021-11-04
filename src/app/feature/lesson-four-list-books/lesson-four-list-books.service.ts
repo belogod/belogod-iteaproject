@@ -9,11 +9,12 @@ export class LessonFourListBooksService {
   public url: any = {
     main: 'assets/json/books.json',
     weather: 'https://community-open-weather-map.p.rapidapi.com/weather?',
-    weatherWeek: 'https://community-open-weather-map.p.rapidapi.com/forecast?q=san%20francisco%2cus',
+    weatherWeek: 'https://community-open-weather-map.p.rapidapi.com/forecast/daily?q=Kyiv%2cUA',
   }
 
   public data: any;
   public weatherData: any;
+  public weekWeatherData: any;
   public httpOptions = {
     headers: new HttpHeaders({
       'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
@@ -50,11 +51,11 @@ export class LessonFourListBooksService {
   }
 
   getWeatherWeek(): any {
-    return this.http.get(this.url.weatherWeek, this.httpOptions)
+    return this.http.get(this.url.weatherWeek + '&units=metric&cnt=7' + '&lang=ru', this.httpOptions)
       .subscribe(
         (data: any) => {
-          this.weatherData = data;
-          console.log('weatherData', data)
+          this.weekWeatherData = data.list;
+          console.log('weatherData', this.weekWeatherData)
         });
   }
 

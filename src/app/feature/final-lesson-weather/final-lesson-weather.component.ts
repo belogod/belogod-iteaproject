@@ -22,6 +22,7 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   public temp_min: number;
 
   public allWeather: any;
+  public weekAllWeather: any;
   public date = new Date();
 
   @ViewChild(MatMenuTrigger, {static: false}) menuTrigger: MatMenuTrigger;
@@ -29,13 +30,14 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   constructor(
     public lessonFourListBooksService: LessonFourListBooksService
   ) {
-    // this.getWeatherWeek();
+    this.getWeatherWeek();
   }
 
   ngOnInit(): void {
   }
 
   ngDoCheck() {
+    this.weekAllWeather = this.lessonFourListBooksService.weekWeatherData
     this.allWeather = this.lessonFourListBooksService.weatherData;
 
     if (this.allWeather !== undefined) {

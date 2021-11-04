@@ -1,1 +1,125 @@
-<p>final-lesson-weather works!</p>
+<app-toolbar [title]="title"></app-toolbar>
+
+<div class="form">
+  <mat-form-field class="search">
+
+    <mat-icon (keydown.enter)="someMethod()" (keydown.escape)="menuTrigger.closeMenu()"
+              (keydown.space)="someMethod()"
+              [matMenuTriggerFor]="filter"
+              class="pref-sort"
+              matPrefix
+              tabindex=10
+              title="Фильтр">
+      arrow_drop_down
+    </mat-icon>
+    <mat-label>Введите город для поиска</mat-label>
+    <input
+      [(ngModel)]=search
+      matInput
+      tabindex=100>
+    <mat-menu #filter="matMenu" [overlapTrigger]="false" class="menu">
+      <form (click)="$event.stopPropagation();"
+            (keydown.tab)="$event.stopPropagation();">
+
+        <mat-grid-list cols="12" rowHeight="45">
+
+          <mat-grid-tile colspan="5">
+            <p>Единица измерения</p>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="7">
+            <mat-toolbar-row>
+              <mat-form-field>
+                <select
+                  [(ngModel)]="units" [ngModelOptions]="{standalone: true}" id="units" matNativeControl
+                  tabindex=10>
+                  <option value="metric">Цельсий</option>
+                  <option value="imperial">Фаренгейт</option>
+                </select>
+              </mat-form-field>
+            </mat-toolbar-row>
+          </mat-grid-tile>
+
+
+          <mat-grid-tile colspan="5"></mat-grid-tile>
+
+          <mat-grid-tile class="sort-button" colspan="7">
+
+            <mat-toolbar-row>
+              <button (click)="applyFilter(search)"
+                      (keydown.enter)="applyFilter(search)"
+                      (keydown.space)="applyFilter(search)"
+                      color="primary"
+                      mat-stroked-button tabindex=10 class="search_butt_class">
+                Применить
+              </button>
+            </mat-toolbar-row>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+
+      </form>
+    </mat-menu>
+
+    <mat-icon (click)="applyFilter(search)"
+              (keydown.enter)="applyFilter(search)"
+              (keydown.space)="applyFilter(search)"
+              [matBadgeHidden]="!visible" [matBadge]=count.length
+              matBadgeColor="warn"
+              matSuffix tabindex=100 title="Применить">search
+    </mat-icon>
+
+  </mat-form-field>
+
+  <div class="div_weather">
+    <!--  <div class="div_weather" *ngIf="allWeather !== undefined">-->
+    <mat-card class="mat_card_weather">
+
+      <mat-card-header class="mat_card_header_class">
+        <div class="country_class">Kiev</div>
+
+        <div class="header_temp">
+          <div class="temper">
+            <!--          <img class="icon_weather" src="{{getIconUrl(allWeather.weather[0].icon)}}" alt="icon_weather">-->
+            <img class="icon_weather" src="assets/img/1.png" alt="icon_weather">
+            <div class="temperature_temp">{{roundTemp}}</div>
+            <!--          <div class="temperature_temp">{{allWeather.main.temp}}</div>-->
+            <div class="grad">o</div>
+            <!--          <div class="temperature_description">{{allWeather.weather[0].description}}</div>-->
+            <div class="temperature_description">небольшая облачность</div>
+          </div>
+
+          <div class="temper_right">
+            <div class="temper_min_max">По ощущению: {{feels_like}}<sup>o</sup></div>
+            <div class="temper_min_max">Максимальная: {{temp_max}}<sup>o</sup></div>
+            <div class="temper_min_max">Минимальная: {{temp_min}}<sup>o</sup></div>
+          </div>
+        </div>
+
+      </mat-card-header>
+
+      <mat-card-content class="mat_card_content_class">
+
+        <div class="mat_card_content_pressure">
+<!--        <div class="temper_min_max">Влажность: {{allWeather.main.humidity}}%</div>-->
+<!--        <div class="temper_min_max">Атмосферное давление: {{allWeather.main.pressure}}%</div>-->
+<!--        <div class="temper_min_max">Скорость ветра: {{allWeather.wind.speed}}%</div>-->
+<!--        <div class="temper_min_max">Порыв ветра: {{allWeather.wind.gust}}%</div>-->
+<!--        <div class="temper_min_max">Облачность: {{allWeather.clouds.all}}%</div>-->
+<!--        <div class="temper_min_max">Восход: {{allWeather.sys.sunrise * 1000 | date: 'hh:mm'}}%</div>-->
+<!--        <div class="temper_min_max">Закат: {{allWeather.sys.sunset * 1000 | date: 'hh:mm'}}%</div>-->
+        <div class="allWeather_pressure">Влажность: 83%</div>
+        <div class="allWeather_pressure">Атмосферное давление: 1019гПа</div>
+        <div class="allWeather_pressure">Скорость ветра: 0.45м/с</div>
+        <div class="allWeather_pressure">Порыв ветра: 3.13м/с</div>
+        <div class="allWeather_pressure">Облачность: 20%</div>
+        <div class="allWeather_pressure">Восход: {{1636001621 * 1000 | date: 'hh:mm'}}</div>
+        <div class="allWeather_pressure">Закат: {{1636036156 * 1000 | date: 'hh:mm'}}</div>
+        </div>
+        <div class="date_class">{{date | date:'dd.MM.y'}}</div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+</div>

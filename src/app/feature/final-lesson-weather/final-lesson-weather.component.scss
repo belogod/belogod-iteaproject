@@ -1,0 +1,171 @@
+.form {
+  margin: 10px;
+}
+
+:host ::ng-deep .search .mat-form-field-flex {
+  align-items: center;
+  width: 300px;
+
+  mat-icon:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
+.pref-sort {
+  margin-right: 10px;
+  margin-bottom: 4px;
+}
+
+.pref-sort:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+::ng-deep .menu {
+  max-width: 500px !important;
+  margin-top: 5px;
+  overflow: hidden !important;
+  margin-left: -12px;
+  font-size: 14px;
+
+  .mat-form-field-flex {
+    width: 260px;
+  }
+
+  .sort-button {
+    .search_butt_class {
+      width: 105px !important;
+    }
+  }
+
+  select {
+    font-weight: bold;
+  }
+
+  // Кнопка сортировки
+
+  button.mat-stroked-button {
+    border: 1px solid #546747 !important;
+  }
+
+  button.mat-stroked-button:hover {
+    color: #546747 !important;
+    border: 2px solid #546747 !important;
+  }
+
+  input.mat-input-element {
+    font-weight: bold;
+  }
+
+  form {
+    width: 500px;
+  }
+
+  p {
+    padding-left: 15px;
+    height: 23px;
+    color: #5f6368;
+  }
+
+  b {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 23px;
+  }
+}
+
+
+.div_weather {
+  width: 100%;
+
+  .mat_card_weather {
+    background-image: url('/assets/img/weather/new_history.png');
+    //opacity: 0.8;
+    width: 600px;
+    height: 280px;
+  }
+}
+
+.mat_card_header_class {
+  height: 50%;
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid black;
+
+  .country_class {
+    color: #5f5e05;
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+  }
+
+}
+
+.header_temp {
+  display: flex;
+
+  .temper {
+    display: flex;
+    width: 72%;
+    border-right: 2px solid black;
+
+    .icon_weather {
+      width: 80px;
+      height: 80px;
+    }
+
+    .temperature_temp {
+      font-size: 4.5em;
+      display: flex;
+    }
+
+    .temperature_description {
+      font-size: 1em;
+      display: flex;
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+
+    .grad {
+      display: flex;
+      font-size: 2em;
+    }
+
+  }
+
+  .temper_right {
+    width: 28%;
+    margin-top: 5px;
+    height: 100%;
+    text-align: right;
+    margin-left: 10px;
+
+    .temper_min_max {
+      font-size: 1em;
+    }
+  }
+}
+
+.mat_card_content_pressure {
+  width: 50%;
+  margin-top: 10px !important;
+
+  .allWeather_pressure {
+    font-size: 1em;
+    text-align: left;
+  }
+}
+
+.mat_card_content_class {
+  height: 50%;
+
+  .date_class {
+    position: absolute;
+    color: black;
+    text-align: right;
+    font-size: 1.5em;
+    bottom: 10px;
+    right: 10px;
+  }
+}

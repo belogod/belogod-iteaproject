@@ -111,9 +111,11 @@ body {
     margin-right: 20px;
     margin-top: 20px;
     display: inline-grid;
-    background-image: url(/assets/img/weather/new_history.png);
+    background-image: url(/assets/img/weather/weather.jpg);
     width: 30%;
     height: 280px;
+    color: #2d4d63;
+    -webkit-text-stroke: 1px #7aafcb;
   }
 }
 
@@ -169,6 +171,8 @@ body {
     height: 100%;
     text-align: right;
     margin-left: 10px;
+    color: #f1f1f1;
+    -webkit-text-stroke: 0 white;
 
     .temper_min_max {
       font-size: 1em;
@@ -191,7 +195,7 @@ body {
 
   .date_class {
     position: absolute;
-    color: black;
+    color: #bbc8ba;
     text-align: right;
     font-size: 1.5em;
     bottom: 10px;

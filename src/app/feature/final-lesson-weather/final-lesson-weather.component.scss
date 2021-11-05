@@ -1,10 +1,33 @@
+body {
+  display: flex;
+  min-width: 900px;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+:host::ng-deep .mat-drawer-content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: calc(100% - 160px);
+  margin-top: 10px;
+  overflow: auto;
+}
 .form {
   margin: 10px;
+}
+
+.sidenav {
+  width: 100%;
+  height: 100%;
+  background: #bbc8ba;
 }
 
 :host ::ng-deep .search .mat-form-field-flex {
   align-items: center;
   width: 300px;
+  margin-top: 15px;
 
   mat-icon:hover {
     cursor: pointer;
@@ -77,14 +100,19 @@
 
 
 .div_weather {
-  width: 100%;
-  display: flex;
+  margin-top: 0 !important;
+  height: 100%;
+  display: contents;
+  overflow: hidden;
+  background-color: #bbc8ba;
+  margin-right: 10px;
 
   .mat_card_weather {
     margin-right: 20px;
-    background-image: url('/assets/img/weather/new_history.png');
-    //opacity: 0.8;
-    width: 600px;
+    margin-top: 20px;
+    display: inline-grid;
+    background-image: url(/assets/img/weather/new_history.png);
+    width: 30%;
     height: 280px;
   }
 }
@@ -93,7 +121,6 @@
   height: 50%;
   display: block;
   width: 100%;
-  border-bottom: 2px solid black;
 
   .country_class {
     color: #5f5e05;
@@ -150,8 +177,8 @@
 }
 
 .mat_card_content_pressure {
-  width: 50%;
-  margin-top: 10px !important;
+  position: absolute;
+  top: 60%;
 
   .allWeather_pressure {
     font-size: 1em;

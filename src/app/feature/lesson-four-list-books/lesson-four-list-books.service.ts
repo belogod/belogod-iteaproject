@@ -51,7 +51,7 @@ export class LessonFourListBooksService {
   }
 
   getWeatherWeek(): any {
-    return this.http.get(this.url.weatherWeek + '&units=metric&cnt=7' + '&lang=ru', this.httpOptions)
+    return this.http.get(this.url.weatherWeek + '&units=metric&cnt=9' + '&lang=ru', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.weekWeatherData = data.list;

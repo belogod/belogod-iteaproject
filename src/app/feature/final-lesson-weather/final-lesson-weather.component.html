@@ -72,7 +72,7 @@
         </mat-icon>
 
       </mat-form-field>
-
+<br>
       <div class="div_weather">
         <div class="div_weather" *ngIf="allWeather !== undefined">
           <mat-card class="mat_card_weather">
@@ -83,15 +83,15 @@
               <div class="header_temp">
                 <div class="temper">
                   <img class="icon_weather" src="{{getIconUrl(allWeather.weather[0].icon)}}" alt="icon_weather">
-                  <div class="temperature_temp">{{roundTemp}}</div>
+                  <div class="temperature_temp">{{allWeather.main.temp | number: '1.0-0'}}</div>
                   <div class="grad">o</div>
                   <div class="temperature_description">{{allWeather.weather[0].description}}</div>
                 </div>
 
                 <div class="temper_right">
-                  <div class="temper_min_max">По ощущению: {{feels_like}}<sup>o</sup></div>
-                  <div class="temper_min_max">Максимальная: {{temp_max}}<sup>o</sup></div>
-                  <div class="temper_min_max">Минимальная: {{temp_min}}<sup>o</sup></div>
+                  <div class="temper_min_max">По ощущению: {{allWeather.main.feels_like | number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Максимальная: {{allWeather.main.temp_max | number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Минимальная: {{allWeather.main.temp_min | number: '1.0-0'}}<sup>o</sup></div>
                 </div>
               </div>
 
@@ -99,16 +99,8 @@
 
             <mat-card-content class="mat_card_content_class">
 
-              <div class="mat_card_content_pressure">
-                <div class="allWeather_pressure">Влажность: {{allWeather.main.humidity}}%</div>
-                <div class="allWeather_pressure">Атмосферное давление: {{allWeather.main.pressure}}гПа</div>
-                <div class="allWeather_pressure">Скорость ветра: {{allWeather.wind.speed}}м/с</div>
-                <div class="allWeather_pressure">Порыв ветра: {{allWeather.wind.gust}}м/с</div>
-                <div class="allWeather_pressure">Облачность: {{allWeather.clouds.all}}%</div>
-                <div class="allWeather_pressure">Восход: {{allWeather.sys.sunrise * 1000 | date: 'hh:mm'}}</div>
-                <div class="allWeather_pressure">Закат: {{allWeather.sys.sunset * 1000 | date: 'hh:mm'}}</div>
-              </div>
-              <div class="date_class">{{date | date:'dd.MM.y'}}</div>
+
+              <div class="date_class">{{allWeather.dt * 1000 | date: 'dd.MM.y'}}</div>
             </mat-card-content>
 
           </mat-card>
@@ -118,6 +110,7 @@
 
     <mat-tab label="This week weather">
 
+      <mat-drawer-container autosize class="sidenav">
       <div class="div_weather">
         <div class="div_weather" *ngFor="let item of weekAllWeather">
           <mat-card class="mat_card_weather">
@@ -128,18 +121,18 @@
               <div class="header_temp">
                 <div class="temper">
                   <img class="icon_weather" src="{{getIconUrl(item.weather[0].icon)}}" alt="icon_weather">
-<!--                  <div class="temperature_temp">{{item.main.temp}}</div>-->
+                  <div class="temperature_temp">{{item.temp.day | number: '1.0-0'}}</div>
                   <div class="grad">o</div>
                   <div class="temperature_description">{{item.weather[0].description}}</div>
                 </div>
 
                 <div class="temper_right">
-                  <div class="temper_min_max">Утром: {{item.temp.morn}}<sup>o</sup></div>
-                  <div class="temper_min_max">Днем: {{item.temp.day}}<sup>o</sup></div>
-                  <div class="temper_min_max">Вечером: {{item.temp.eve}}<sup>o</sup></div>
-                  <div class="temper_min_max">Ночью: {{item.temp.night}}<sup>o</sup></div>
-                  <div class="temper_min_max">Максимальная: {{item.temp.max}}<sup>o</sup></div>
-                  <div class="temper_min_max">Минимальная: {{item.temp.min}}<sup>o</sup></div>
+                  <div class="temper_min_max">Утром: {{item.temp.morn | number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Днем: {{item.temp.day | number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Вечером: {{item.temp.eve| number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Ночью: {{item.temp.night| number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Максимальная: {{item.temp.max| number: '1.0-0'}}<sup>o</sup></div>
+                  <div class="temper_min_max">Минимальная: {{item.temp.min| number: '1.0-0'}}<sup>o</sup></div>
                 </div>
               </div>
 
@@ -162,6 +155,7 @@
           </mat-card>
         </div>
       </div>
+      </mat-drawer-container>
     </mat-tab>
   </mat-tab-group>
 </div>

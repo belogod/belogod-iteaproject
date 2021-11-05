@@ -16,11 +16,6 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   public count: Array<string> = [];
   public units: string = 'metric';
 
-  public roundTemp: number;
-  public feels_like: number;
-  public temp_max: number;
-  public temp_min: number;
-
   public allWeather: any;
   public weekAllWeather: any;
   public date = new Date();
@@ -39,13 +34,6 @@ export class FinalLessonWeatherComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.weekAllWeather = this.lessonFourListBooksService.weekWeatherData
     this.allWeather = this.lessonFourListBooksService.weatherData;
-
-    if (this.allWeather !== undefined) {
-      this.roundTemp = Math.round(this.allWeather.main.temp);
-      this.feels_like = Math.round(this.allWeather.main.feels_like);
-      this.temp_max = Math.round(this.allWeather.main.temp_max);
-      this.temp_min = Math.round(this.allWeather.main.temp_min);
-    }
   }
 
   getWeatherWeek(): void {

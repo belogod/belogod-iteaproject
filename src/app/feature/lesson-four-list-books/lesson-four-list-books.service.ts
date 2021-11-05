@@ -6,15 +6,19 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 })
 
 export class LessonFourListBooksService {
+
+  public data: any;
+  public weatherData: any;
+  public historicalWeatherData: any;
+  public weekWeatherData: any;
+
   public url: any = {
     main: 'assets/json/books.json',
     weather: 'https://community-open-weather-map.p.rapidapi.com/weather?',
     weatherWeek: 'https://community-open-weather-map.p.rapidapi.com/forecast/daily?q=Kyiv%2cUA',
+    weatherHistorical: 'https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=50.433334&lon=30.516666&dt=1636102800&units=metric&lang=ru',
   }
 
-  public data: any;
-  public weatherData: any;
-  public weekWeatherData: any;
   public httpOptions = {
     headers: new HttpHeaders({
       'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
@@ -47,6 +51,15 @@ export class LessonFourListBooksService {
       .subscribe(
         (data: any) => {
           this.weatherData = data;
+        });
+  }
+
+  getHistoricalWeather(): any {
+    return this.http.get(this.url.weatherHistorical, this.httpOptions)
+      .subscribe(
+        (data: any) => {
+          this.historicalWeatherData = data.hourly;
+          console.log('this,histor', this.historicalWeatherData)
         });
   }
 

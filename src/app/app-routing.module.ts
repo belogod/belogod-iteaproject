@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {NotFoundComponent} from "./feature/not-found/not-found.component";
+import {HistoricalWeatherModule} from "./feature/historical-weather/historical-weather.module";
 
 export const ROUTES: Routes = [
   {
@@ -38,6 +39,10 @@ export const ROUTES: Routes = [
   {
     path: 'final-lesson-weather',
     loadChildren: () => import ('./feature/final-lesson-weather/final-lesson-weather.module').then(m => m.FinalLessonWeatherModule)
+  },
+  {
+    path: 'historical-weather',
+    loadChildren: () => import ('./feature/historical-weather/historical-weather.module').then(m => m.HistoricalWeatherModule)
   },
   {path: 'dashboard', loadChildren: () => import ('./feature/dashboard/dashboard.module').then(m => m.DashboardModule)},
   {path: '', loadChildren: () => import ('./feature/dashboard/dashboard.module').then(m => m.DashboardModule)},

@@ -1,0 +1,44 @@
+<app-toolbar [title]="title"></app-toolbar>
+
+<div class="form">
+<mat-drawer-container autosize class="sidenav">
+  <div class="div_weather">
+    <div class="div_weather" *ngFor="let item of historicalWeather">
+      <mat-card class="mat_card_weather">
+
+        <mat-card-header class="mat_card_header_class">
+          <div class="country_class">Kiev</div>
+
+          <div class="header_temp">
+            <div class="temper">
+              <img class="icon_weather" src="{{getIconUrl(item.weather[0].icon)}}" alt="icon_weather">
+              <div class="temperature_temp">{{item.temp | number: '1.0-0'}}</div>
+              <div class="grad">o</div>
+              <div class="temperature_description">{{item.weather[0].description}}</div>
+            </div>
+
+            <div class="temper_right">
+              <div class="temper_min_max">По ощущению: {{item.feels_like | number: '1.0-0'}}<sup>o</sup></div>
+            </div>
+          </div>
+
+        </mat-card-header>
+
+        <mat-card-content class="mat_card_content_class">
+
+          <div class="mat_card_content_pressure">
+            <div class="allWeather_pressure">Влажность: {{item.humidity}}%</div>
+            <div class="allWeather_pressure">Атмосферное давление: {{item.pressure}}гПа</div>
+            <div class="allWeather_pressure">Скорость ветра: {{item.wind_speed}}м/с</div>
+            <div class="allWeather_pressure">Порыв ветра: {{item.wind_gust}}м/с</div>
+            <div class="allWeather_pressure">Облачность: {{item.clouds}}%</div>
+
+          </div>
+          <div class="date_class">{{item.dt * 1000 | date:'dd.MM.y mm:hh'}}</div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+</mat-drawer-container>
+</div>

@@ -16,7 +16,7 @@ export class LessonFourListBooksService {
     main: 'assets/json/books.json',
     weather: 'https://community-open-weather-map.p.rapidapi.com/weather?',
     weatherWeek: 'https://community-open-weather-map.p.rapidapi.com/forecast/daily?q=Kyiv%2cUA',
-    weatherHistorical: 'https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=50.433334&lon=30.516666&dt=1636102800&units=metric&lang=ru',
+    weatherHistorical: 'https://community-open-weather-map.p.rapidapi.com/onecall/timemachine?lat=50.433334&lon=30.516666&dt=1636039358&units=metric&lang=ru',
   }
 
   public httpOptions = {

@@ -113,6 +113,7 @@ body {
     display: inline-grid;
     background-image: url(/assets/img/weather/weather.jpg);
     width: 30%;
+    min-width: 500px;
     height: 280px;
     color: #2d4d63;
     -webkit-text-stroke: 1px #7aafcb;
@@ -195,7 +196,8 @@ body {
 
   .date_class {
     position: absolute;
-    color: #bbc8ba;
+    color: white;
+    -webkit-text-stroke: 1px white;
     text-align: right;
     font-size: 1.5em;
     bottom: 10px;

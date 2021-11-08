@@ -59,7 +59,6 @@ export class LessonFourListBooksService {
       .subscribe(
         (data: any) => {
           this.historicalWeatherData = data.hourly;
-          console.log('this,histor', this.historicalWeatherData)
         });
   }
 
@@ -68,7 +67,6 @@ export class LessonFourListBooksService {
       .subscribe(
         (data: any) => {
           this.weekWeatherData = data.list;
-          console.log('weatherData', this.weekWeatherData)
         });
   }
 

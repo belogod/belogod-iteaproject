@@ -105,8 +105,8 @@
                 <div class="allWeather_pressure">Скорость ветра: {{allWeather.wind.speed}}м/с</div>
                 <div class="allWeather_pressure">Порыв ветра: {{allWeather.wind.gust}}м/с</div>
                 <div class="allWeather_pressure">Облачность: {{allWeather.clouds.all}}%</div>
-                <div class="allWeather_pressure">Восход: {{allWeather.sys.sunrise * 1000 | date: 'hh:mm'}}</div>
-                <div class="allWeather_pressure">Закат: {{allWeather.sys.sunset * 1000 | date: 'hh:mm'}}</div>
+                <div class="allWeather_pressure">Восход: {{allWeather.sys.sunrise * 1000 | date: 'HH:mm'}}</div>
+                <div class="allWeather_pressure">Закат: {{allWeather.sys.sunset * 1000 | date: 'HH:mm'}}</div>
               </div>
               <div class="date_class">{{allWeather.dt * 1000 | date: 'dd.MM.y'}}</div>
             </mat-card-content>
@@ -155,8 +155,8 @@
                 <div class="allWeather_pressure">Скорость ветра: {{item.speed}}м/с</div>
                 <div class="allWeather_pressure">Порыв ветра: {{item.gust}}м/с</div>
                 <div class="allWeather_pressure">Облачность: {{item.clouds}}%</div>
-                <div class="allWeather_pressure">Восход: {{item.sunrise * 1000 | date: 'hh:mm'}}</div>
-                <div class="allWeather_pressure">Закат: {{item.sunset * 1000 | date: 'hh:mm'}}</div>
+                <div class="allWeather_pressure">Восход: {{item.sunrise * 1000 | date: 'HH:mm'}}</div>
+                <div class="allWeather_pressure">Закат: {{item.sunset * 1000 | date: 'HH:mm'}}</div>
               </div>
               <div class="date_class">{{item.dt * 1000 | date:'dd.MM.y'}}</div>
             </mat-card-content>
